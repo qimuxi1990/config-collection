@@ -1,0 +1,30 @@
+# mongodb.conf
+# http://dba.stackexchange.com/questions/82591/sample-yaml-configuration-files-for-mongodb
+# https://docs.mongodb.org/master/reference/configuration-options/
+
+storage:
+    dbPath: c:\Users\Public\Documents\MongoDB\wdata\db
+    engine: "wiredTiger"
+
+security:
+    authorization: "enabled"
+    #keyFile: "c:/wamp64/bin/mongodb/conf/mongodbKeyFile"
+
+systemLog:
+    destination: "file"
+    path: "C:/Users/Public/Documents/MongoDB/logs/wmongodb.log"
+    logAppend: true
+    timeStampFormat: "iso8601-utc"
+
+net:
+    bindIp: 127.0.0.1,10.0.0.249
+    port: 27017
+    wireObjectCheck : false
+
+replication:
+    oplogSizeMB: 50
+    replSetName: "rs0"
+    # after setup here also to rs.initiate({_id: "", members: [{}]}) in mongo shell. It can remember after service restart.
+    # https://docs.mongodb.com/manual/reference/method/rs.initiate/
+
+#cloud.monitoring.free.state: "off"
